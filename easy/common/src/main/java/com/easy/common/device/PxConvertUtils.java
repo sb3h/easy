@@ -1,11 +1,11 @@
-package com.easy.common.res;
+package com.easy.common.device;
 
 import android.content.res.Resources;
 
 /**
  * px、dp、sp之间相互转换。
  */
-public class PxConvertUtil {
+public class PxConvertUtils {
 
     public static int dp2px(Resources resources, float dpValue) {
         float scale = resources.getDisplayMetrics().density;

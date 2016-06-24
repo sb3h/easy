@@ -5,7 +5,7 @@ import android.content.res.Resources;
 /**
  * 获取资源id，当代码导成jar包时，方便与资源文件进行分离。
  */
-public class ResIdUtil {
+public class ResIdUtils {
 
     public static int getIdFromView(String packageName, Resources resources, String name) {
         return resources.getIdentifier(name, "id", packageName);

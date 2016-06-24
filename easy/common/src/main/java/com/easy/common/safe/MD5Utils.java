@@ -3,7 +3,7 @@ package com.easy.common.safe;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class MD5Util {
+public class MD5Utils {
 
     public static String getMD5(String content) {
         try {

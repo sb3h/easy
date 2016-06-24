@@ -15,7 +15,7 @@ import java.util.Enumeration;
 /**
  * 检测网络状态，获取MAC地址、IP地址。
  */
-public class NetworkUtil {
+public class NetworkUtils {
 
     /**
      * 网络断开
