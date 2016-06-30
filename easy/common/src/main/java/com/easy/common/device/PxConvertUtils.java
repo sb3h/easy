@@ -1,29 +1,57 @@
 package com.easy.common.device;
 
-import android.content.res.Resources;
+import android.content.Context;
 
 /**
  * px、dp、sp之间相互转换。
  */
 public class PxConvertUtils {
 
-    public static int dp2px(Resources resources, float dpValue) {
-        float scale = resources.getDisplayMetrics().density;
+    /**
+     * dp转换成px
+     *
+     * @param context
+     * @param dpValue dp的值
+     * @return 转换成px的值
+     */
+    public static int dp2px(Context context, float dpValue) {
+        float scale = ScreenUtils.getDensity(context);
         return (int) (dpValue * scale + 0.5f);
     }
 
-    public static int sp2px(Resources resources, float spValue) {
-        float scale = resources.getDisplayMetrics().scaledDensity;
+    /**
+     * sp转换成px
+     *
+     * @param context
+     * @param spValue sp的值
+     * @return 转换成px的值
+     */
+    public static int sp2px(Context context, float spValue) {
+        float scale = ScreenUtils.getScaledDensity(context);
         return (int) (spValue * scale + 0.5f);
     }
 
-    public static int px2dp(Resources resources, float pxValue) {
-        float scale = resources.getDisplayMetrics().density;
+    /**
+     * px转换成dp
+     *
+     * @param context
+     * @param pxValue px的值
+     * @return 转换成dp的值
+     */
+    public static int px2dp(Context context, float pxValue) {
+        float scale = ScreenUtils.getDensity(context);
         return (int) (pxValue / scale + 0.5f);
     }
 
-    public static int px2sp(Resources resources, float pxValue) {
-        float scale = resources.getDisplayMetrics().scaledDensity;
+    /**
+     * px转换成sp
+     *
+     * @param context
+     * @param pxValue px的值
+     * @return 转换成sp的值
+     */
+    public static int px2sp(Context context, float pxValue) {
+        float scale = ScreenUtils.getScaledDensity(context);
         return (int) (pxValue / scale + 0.5f);
     }
 

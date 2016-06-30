@@ -3,6 +3,9 @@ package com.easy.common.safe;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * MD5加密。
+ */
 public class MD5Utils {
 
     public static String getMD5(String content) {
