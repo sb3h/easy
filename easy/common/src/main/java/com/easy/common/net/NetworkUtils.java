@@ -12,9 +12,6 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 
-/**
- * 检测网络状态，获取MAC地址、IP地址。
- */
 public class NetworkUtils {
 
     /**

@@ -9,9 +9,6 @@ import android.view.WindowManager;
 
 import java.lang.reflect.InvocationTargetException;
 
-/**
- * 屏幕的宽高、密度。
- */
 public class ScreenUtils {
 
     /**

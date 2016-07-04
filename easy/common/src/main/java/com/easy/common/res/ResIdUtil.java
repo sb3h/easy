@@ -2,9 +2,6 @@ package com.easy.common.res;
 
 import android.content.res.Resources;
 
-/**
- * 获取资源id，当代码导成jar包时，方便与资源文件进行分离。
- */
 public class ResIdUtil {
 
     private String mPackageName;

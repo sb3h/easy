@@ -2,9 +2,7 @@ package com.easy.common.device;
 
 import android.content.Context;
 
-/**
- * px、dp、sp之间相互转换。
- */
+
 public class PxConvertUtils {
 
     /**

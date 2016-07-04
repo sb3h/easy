@@ -7,9 +7,6 @@ import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
-/**
- * ListView、GridView的通用适配器。
- */
 public abstract class CommonBaseAdapter<T> extends BaseAdapter implements ICommonBaseAdapter<T> {
 
     private Context mContext;

@@ -3,17 +3,15 @@ package com.easy.common;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.easy.common.device.DeviceTestRunner;
-
-public class DeviceActivity extends Activity {
+public class CommonActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    public void startDeviceRunner() {
-        DeviceTestRunner testRunner = new DeviceTestRunner(this);
+    public void startCommonRunner() {
+        CommonTestRunner testRunner = new CommonTestRunner(this);
         testRunner.runTest();
     }
 
