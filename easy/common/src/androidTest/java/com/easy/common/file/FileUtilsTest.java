@@ -12,6 +12,8 @@ public class FileUtilsTest extends AndroidTestCase {
     private static final String EASY_DIR_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()
             + File.separator + "easy";
     private static final String COMMON_DIR_NAME = "common";
+    private static final String COMMON_DIR_ZIP_NAME = "commonDir.zip";
+    private static final String COMMON_FILE_ZIP_NAME = "commonFile.zip";
 
     public void testCreateDir() {
         File parentDir = new File(EASY_DIR_PATH);
@@ -27,16 +29,22 @@ public class FileUtilsTest extends AndroidTestCase {
 
     public void testCompressDir() {
         File targetDir = new File(EASY_DIR_PATH + File.separator + COMMON_DIR_NAME);
-        File zipFile = new File(EASY_DIR_PATH + File.separator + "common.zip");
+        File zipFile = new File(EASY_DIR_PATH + File.separator + COMMON_DIR_ZIP_NAME);
         zipFile = FileUtils.compressDir(targetDir, zipFile);
         assertNotNull(zipFile);
     }
 
     public void testCompressFile() {
-        File targetFile = new File(EASY_DIR_PATH + File.separator + "common1.txt");
-        File zipFile = new File(EASY_DIR_PATH + File.separator + "common1.zip");
+        File targetFile = new File(EASY_DIR_PATH + File.separator + "common.txt");
+        File zipFile = new File(EASY_DIR_PATH + File.separator + COMMON_FILE_ZIP_NAME);
         zipFile = FileUtils.compressFile(targetFile, zipFile);
         assertNotNull(zipFile);
+    }
+
+    public void testUncompressFile() {
+        File zipFile = new File(EASY_DIR_PATH + File.separator + COMMON_FILE_ZIP_NAME);
+        File targetDir = new File(EASY_DIR_PATH);
+        FileUtils.uncompressFile(zipFile, targetDir);
     }
 
 }

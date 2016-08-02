@@ -145,24 +145,80 @@ public class FileUtils {
         return null;
     }
 
-    public static File findFile(File targetDir, String fileName) {
+    public static File findFileByName(File targetDir, String fileName) {
+        File targetFile = null;
         File[] files = targetDir.listFiles();
         if (files != null && files.length > 0) {
             for (File file : files) {
-                if (file.getName().equals(fileName))
-                    return file;
+                if (file.isDirectory()) {
+                    targetFile = findFileByName(file, fileName);
+                    if (targetFile != null) {
+                        if (targetFile.getName().equals(fileName))
+                            break;
+                    }
+                } else {
+                    if (file.getName().equals(fileName)) {
+                        targetFile = file;
+                        break;
+                    }
+                }
             }
         }
-        return null;
+        return targetFile;
     }
 
-    public static void deleteFiles(File targetDir, String exceptFileName) {
+    public static File findFileByPath(File targetDir, String filePath) {
+        File targetFile = null;
         File[] files = targetDir.listFiles();
         if (files != null && files.length > 0) {
             for (File file : files) {
-                if (file.getName().equals(exceptFileName))
-                    continue;
-                file.delete();
+                if (file.isDirectory()) {
+                    targetFile = findFileByPath(file, filePath);
+                    if (targetFile != null) {
+                        if (targetFile.getAbsolutePath().equals(filePath))
+                            break;
+                    }
+                } else {
+                    if (file.getAbsolutePath().equals(filePath)) {
+                        targetFile = file;
+                        break;
+                    }
+                }
+            }
+        }
+        return targetFile;
+    }
+
+    public static void deleteFilesExceptName(File targetDir, String exceptFileName) {
+        File[] files = targetDir.listFiles();
+        if (files != null && files.length > 0) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    deleteFilesExceptName(file, exceptFileName);
+                    if (file.getName().equals(exceptFileName) == false)
+                        file.delete();
+                } else {
+                    if (file.getName().equals(exceptFileName))
+                        continue;
+                    file.delete();
+                }
+            }
+        }
+    }
+
+    public static void deleteFilesExceptPath(File targetDir, String exceptFilePath) {
+        File[] files = targetDir.listFiles();
+        if (files != null && files.length > 0) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    deleteFilesExceptPath(file, exceptFilePath);
+                    if (file.getAbsolutePath().equals(exceptFilePath) == false)
+                        file.delete();
+                } else {
+                    if (file.getAbsolutePath().equals(exceptFilePath))
+                        continue;
+                    file.delete();
+                }
             }
         }
     }
